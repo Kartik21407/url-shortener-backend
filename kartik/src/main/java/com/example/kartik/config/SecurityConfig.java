@@ -24,7 +24,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors(cors -> cors.configurationSource(request -> {
             var corsConfiguration = new org.springframework.web.cors.CorsConfiguration();
-            corsConfiguration.setAllowedOrigins(java.util.List.of("http://127.0.0.1:5500", "http://localhost:5500"));
+            corsConfiguration.setAllowedOrigins(java.util.List.of(
+                    "http://127.0.0.1:5500",
+                    "http://localhost:5500",
+                    "https://url-shortener-frontend-bay-kappa.vercel.app"
+            ));
             corsConfiguration.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
             corsConfiguration.setAllowedHeaders(java.util.List.of("*"));
             corsConfiguration.setAllowCredentials(true);
